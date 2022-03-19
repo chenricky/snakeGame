@@ -26,7 +26,7 @@ def forward():
         turtle_list[j].forward(50)
 
 screen.update()
-screen.onkey(forward(),"Up")
+screen.onkey(forward,"Up")
 screen.listen()
 
 
