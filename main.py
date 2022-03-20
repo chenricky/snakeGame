@@ -9,6 +9,8 @@ x_start_position = [0,20,40]
 y_start_position = []
 turtle_list=[]
 
+
+
 for i in range(0,3):
     turtle = Turtle(shape="square")
     turtle.shapesize(1,1,1)
@@ -19,18 +21,25 @@ for i in range(0,3):
     print(turtle.position()[0])
     turtle_list.append(turtle)
 
+screen.update()
+
 print(turtle_list)
 
 
 def forward():
     for j in range(3):
         # turtle_list[j].pendown()
-        turtle_list[j].forward(50)
+        turtle_list[j].forward(5)
+        screen.update()
+
+
 
 def backward():
     for j in range(3):
         # turtle_list[j].pendown()
         turtle_list[j].backward(50)
+        screen.update()
+
 
 def left():
     turtle_list[2].left(90)
@@ -40,6 +49,8 @@ def left():
     turtle_list[1].forward(20)
     turtle_list[0].forward(40)
     turtle_list[0].left(90)
+    screen.update()
+
 
 def right():
     turtle_list[2].right(90)
@@ -49,15 +60,25 @@ def right():
     turtle_list[1].forward(20)
     turtle_list[0].forward(40)
     turtle_list[0].right(90)
+    screen.update()
 
 
-screen.update()
-screen.onkey(forward,"w")
-screen.onkey(backward,"s")
-screen.onkey(left,"a")
-screen.onkey(right,"d")
+
+# screen.update()
+# screen.onkey(forward,"w")
+# screen.onkey(backward,"s")
+# screen.onkey(left,"a")
+# screen.onkey(right,"d")
 
 screen.listen()
+
+game_is_on = True
+while game_is_on:
+    forward()
+    screen.onkey(backward,"s")
+    screen.onkey(left,"a")
+    screen.onkey(right,"d")
+
 
 
 
